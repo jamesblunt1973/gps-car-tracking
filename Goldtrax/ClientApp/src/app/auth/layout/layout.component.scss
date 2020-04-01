@@ -1,0 +1,22 @@
+.container {
+    height: 100vh;
+    background: transparent url('/assets/images/auth-bg.jpg') no-repeat center center;
+    background-size: cover;
+
+    .form {
+        width: 280px;
+        max-width: 100%;
+        padding: 20px;
+        margin: 20px;
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 10px;
+        backdrop-filter: blur(2px);
+        box-shadow: 0 0 32px rgba(0,0,0,0.5);
+
+        .logo {
+            display: block;
+            margin: 75px auto;
+            max-width: 100%;
+        }
+    }
+}

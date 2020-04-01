@@ -1,0 +1,10 @@
+.vs/*
+Goldtrax/bin/*
+Goldtrax/obj/*
+Goldtrax/Logs/*
+Goldtrax/Migrations/*
+Goldtrax/ClientApp/node_modules
+Goldtrax/wwwroot
+
+GPSService/bin/*
+GPSService/obj/*

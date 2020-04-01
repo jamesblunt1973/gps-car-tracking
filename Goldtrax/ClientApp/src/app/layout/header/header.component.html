@@ -1,0 +1,19 @@
+<mat-toolbar class="top" fxlayoyt="row" fxLayoutAlign="flex-start center">
+    <button mat-icon-button (click)="changeMenuBtn()">
+        <div class="hamburger" [ngClass]="menuStatus">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+    <img src="/assets/images/logo-small.png" ngClass.lt-sm="small" class="logo" />
+    <span class="slogan" fxHide.lt-sm>سامانه ردیاب خودرو</span>
+    <div *ngIf="user" class="user-commands" fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button>
+            <mat-icon svgIcon="account-circle"></mat-icon>
+        </button>
+        <p>{{ user.name }}</p>
+        <span class="logout" (click)="logout()">خروج</span>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,11 @@
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.clear-path {
+    position: fixed;
+    bottom: 30px;
+    left: 10px;
+    z-index: 1000;
+}

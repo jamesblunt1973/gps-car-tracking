@@ -1,0 +1,10 @@
+<div class="map" leaflet
+     [leafletOptions]="options"
+     [leafletFitBounds]="bounds"
+     [leafletLayers]="layers"
+     (leafletMapZoomEnd)="changeMap($event)">
+  <ng-container *ngFor="let marker of markers">
+    <div *ngIf="marker" [leafletLayer]="marker"></div>
+  </ng-container>
+</div>
+<!--<button *ngIf="showPath" mat-raised-button color="primary" class="clear-path" (click)="ngOnInit()">بازگشت به نقشه</button>-->

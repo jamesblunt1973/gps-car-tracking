@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="panel">
+    <div class="header">
+      گزارش تردد
+      <mat-icon svgIcon="map-marker-path"></mat-icon>
+    </div>
+    <div class="content">
+      <mat-form-field *ngIf="devices.length > 1">
+        <mat-label>انتخاب دستگاه جهت دریافت گزارش</mat-label>
+        <mat-select [(ngModel)]="deviceId">
+          <mat-option *ngFor="let device of devices" [value]="device.id">{{device.imei}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p>لطفا ساعت مورد نظر را انتخاب کنید:</p>
+      <mat-slider #stepper
+                  [max]="24"
+                  [min]="1"
+                  [step]="1"
+                  [thumbLabel]="true"
+                  [tickInterval]="1"
+                  (input)="hours = stepper.value">
+      </mat-slider>
+
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-raised-button color="primary" (click)="getRouteHours()">مشاهده گزارش تردد در <b>{{hours}}</b> ساعت گذشته</button>
+      </div>
+      <p class="mt3">لطفا بازه زمانی را مشخص کنید</p>
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="49%">
+          <input matInput [matDatepicker]="dateFrom"
+                 placeholder="از تاریخ"
+                 (focus)="dateFrom.open()"
+                 [(ngModel)]="date1">
+          <mat-datepicker-toggle matSuffix [for]="dateFrom"></mat-datepicker-toggle>
+          <mat-datepicker [touchUi]="true" #dateFrom></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="49%">
+          <input matInput [ngxTimepicker]="timeFrom" [(ngModel)]="time1">
+          <ngx-material-timepicker #timeFrom></ngx-material-timepicker>
+          <mat-icon class="alarm" svgIcon="alarm" matSuffix></mat-icon>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="49%">
+          <input matInput [matDatepicker]="dateTo"
+                 placeholder="تا تاریخ"
+                 (focus)="dateTo.open()"
+                 [(ngModel)]="date2">
+          <mat-datepicker-toggle matSuffix [for]="dateTo"></mat-datepicker-toggle>
+          <mat-datepicker [touchUi]="true" #dateTo></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="49%">
+          <input matInput [ngxTimepicker]="timeTo" [(ngModel)]="time2">
+          <ngx-material-timepicker #timeTo></ngx-material-timepicker>
+          <mat-icon class="alarm" svgIcon="alarm" matSuffix></mat-icon>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-raised-button color="primary" (click)="getRouteDates()">مشاهده گزارش تردد در بازه تعیین شده</button>
+      </div>
+    </div>
+  </div>
+</div>

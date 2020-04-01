@@ -1,0 +1,17 @@
+.footer {
+  min-height: 150px;
+  background-color: #f5f5f5;
+  color: #1d1d1d;
+  position: relative;
+}
+
+.copy {
+    color: #868686;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    direction: ltr;
+    font-size: 0.8rem;
+    z-index: 1;
+}
+

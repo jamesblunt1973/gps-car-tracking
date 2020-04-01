@@ -1,0 +1,30 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$company-blue: ( 50: #dfe5f9, 100: #b1c1f4, 200: #839ae6, 300: #5974cc, 400: #3652aa, 500: #193282, 600: #102873, 700: #0b2166, 800: #061954, 900: #010f3d, A100: #8c9eff, A200: #536dfe, A400: #3d5afe, A700: #304ffe, contrast: ( 50: $dark-primary-text, 100: $dark-primary-text, 200: $dark-primary-text, 300: $light-primary-text, 400: $light-primary-text, 500: $light-primary-text, 600: $light-primary-text, 700: $light-primary-text, 800: $light-primary-text, 900: $light-primary-text, A100: $dark-primary-text, A200: $light-primary-text, A400: $light-primary-text, A700: $light-primary-text, ) );
+$company-green: ( 50: #f3f8e2, 100: #e8f6b5, 200: #dbf18d, 300: #cfea6d, 400: #bcdb4e, 500: #a7c638, 600: #8dab24, 700: #779215, 800: #5e7609, 900: #445603, A100: #a8f892, A200: #6dcd54, A400: #47a82d, A700: #2b8413, contrast: ( 50: $dark-primary-text, 100: $dark-primary-text, 200: $dark-primary-text, 300: $dark-primary-text, 400: $dark-primary-text, 500: $light-primary-text, 600: $light-primary-text, 700: $light-primary-text, 800: $light-primary-text, 900: $light-primary-text, A100: $dark-primary-text, A200: $light-primary-text, A400: $light-primary-text, A700: $light-primary-text, ) );
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$goldnet-primary: mat-palette($mat-blue);
+$goldnet-accent: mat-palette($mat-green, 600);
+
+// The warn palette is optional (defaults to red).
+$goldnet-error: mat-palette($mat-red);
+$goldnet-warn: mat-palette($mat-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$goldnet-theme: mat-light-theme($goldnet-primary, $goldnet-accent, $goldnet-error);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($goldnet-theme);

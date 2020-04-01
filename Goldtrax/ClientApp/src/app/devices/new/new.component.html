@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="panel">
+        <div class="header">
+            افزودن دستگاه جدید
+            <mat-icon svgIcon="plus-circle"></mat-icon>
+        </div>
+        <div class="content">
+            <form #imeiForm="ngForm" (ngSubmit)="checkImei()">
+                <mat-form-field>
+                    <input matInput
+                           autofocus
+                           placeholder="شماره IMEI دستگاه را وارد کنید"
+                           required
+                           pattern="^\d{15}$"
+                           [(ngModel)]="imei"
+                           name="imei"
+                           dir="ltr" />
+                    <mat-hint>15 رقم بدون فاصله</mat-hint>
+                </mat-form-field>
+                <div class="commands" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+                    <button mat-raised-button color="primary" [disabled]="!imeiForm.valid">ثبت و بررسی</button>
+                    <button type="button" mat-raised-button color="accent" [routerLink]="'/home'">بازگشت به نقشه</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

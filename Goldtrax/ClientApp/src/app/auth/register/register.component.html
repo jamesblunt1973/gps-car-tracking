@@ -1,0 +1,59 @@
+<form #registerForm="ngForm" (ngSubmit)="register()">
+  <mat-form-field>
+    <input matInput
+           autofocus
+           placeholder="نام"
+           required
+           [(ngModel)]="model.name"
+           name="name" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+           placeholder="نام کاربری"
+           required
+           [(ngModel)]="model.userName"
+           name="userName"
+           pattern="^[a-zA-Z]+[a-zA-Z0-9_-]{2,50}$"
+           dir="ltr"
+           #un="ngModel" />
+    <mat-error *ngIf="un.errors?.pattern">3 تا 50 کاراکتر (حروف و اعداد لاتین) مجاز است</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+           placeholder="شماره همراه"
+           required
+           [(ngModel)]="model.cell"
+           name="cell"
+           pattern="(09|۰۹)([0-9]|[۰-۹]){9}$"
+           #cell="ngModel" />
+    <mat-error *ngIf="cell.errors?.pattern">شماره همراه باید با 09 شروع شود و 11 رقم باشد</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+           type="password"
+           placeholder="کلمه عبور"
+           required
+           [(ngModel)]="model.password"
+           name="password"
+           pattern="^.{4,}$"
+           #pw="ngModel" />
+    <mat-error *ngIf="pw.errors?.pattern">کلمه عبور باید دست کم 4 کاراکتر باشد</mat-error>
+  </mat-form-field>
+  <mat-radio-group aria-label="Select Gender"
+                   fxLayout="row wrap"
+                   fxLayoutAlign="space-between"
+                   [(ngModel)]="model.gender"
+                   name="gender">
+    <mat-radio-button [value]="true">آقا</mat-radio-button>
+    <mat-radio-button [value]="false">خانم</mat-radio-button>
+    <mat-radio-button [value]="null">حقوقی</mat-radio-button>
+  </mat-radio-group>
+  <mat-checkbox class="commands" [(ngModel)]="save" name="save">ذخیره اطلاعات ورود</mat-checkbox>
+  <div class="commands" fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-raised-button color="primary" [disabled]="!registerForm.valid || loading">
+      ثبت نام
+    </button>
+    <mat-spinner *ngIf="loading" diameter="35"></mat-spinner>
+    <button type="button" mat-button routerLink="/auth/login">ورود</button>
+  </div>
+</form>

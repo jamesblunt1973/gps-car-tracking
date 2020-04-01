@@ -1,0 +1,10 @@
+<div dir="rtl">
+    <h1 *ngIf="data.title" mat-dialog-title>{{data.title}}</h1>
+    <div class="content" *ngIf="data.message" mat-dialog-content fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon class="icon" [svgIcon]="data.icon" [style.color]="data.iconColor"></mat-icon>
+        <p>{{data.message}}</p>
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-raised-button color="primary" [mat-dialog-close]="true">تایید</button>
+    </div>
+</div>

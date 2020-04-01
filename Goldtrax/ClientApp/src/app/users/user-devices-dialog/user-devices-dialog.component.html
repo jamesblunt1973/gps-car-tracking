@@ -1,0 +1,15 @@
+<div class="container" dir="rtl">
+  <div class="panel">
+    <div class="header">
+      لیست دستگاه های {{data.user.name}}
+      <mat-icon svgIcon="account"></mat-icon>
+    </div>
+    <div class="content">
+      <mat-selection-list>
+        <mat-list-option *ngFor="let dev of devices" [selected]="dev.selected">
+          {{dev.imei}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+</div>

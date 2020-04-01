@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="panel">
+    <div class="header">
+      کاربران
+      <mat-icon svgIcon="account-multiple"></mat-icon>
+    </div>
+    <div class="content">
+      <div fxLayout="row" fxLayoutAlign="center" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+      </div>
+      <mat-list>
+        <mat-list-item *ngFor="let user of users">
+          <span>{{user.cell}} - {{user.name}}</span>
+          <div class="buttons">
+            <button mat-icon-button color="primary" [disabled]="user.busy" (click)="editUserDevices(user)">
+              <mat-icon svgIcon="pencil" matSuffix></mat-icon>
+            </button>
+            <button mat-icon-button color="warn" [disabled]="user.busy" (click)="deleteUser(user)">
+              <mat-icon svgIcon="delete" matSuffix></mat-icon>
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>
